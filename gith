@@ -1,0 +1,29 @@
+#!/bin/bash
+if [[ -e .git ]];then
+	
+	while true;do
+		echo '1. git add'
+		echo '2. git commit'
+		echo '3. git log'
+		read -n 1 -p "What do you want to do? " resp
+		case $resp in
+			1)
+				git add .
+				;;
+			3)
+				git log
+				;;
+			2)
+				read -p "type your message " resps
+				git commit -m "$resps"
+				;;
+			*)
+				echo "ERR"
+				;;
+		esac
+	done
+else
+	git init
+	read -p "Enter your github link to sync the project " links
+	git remote add origin $links
+fi
