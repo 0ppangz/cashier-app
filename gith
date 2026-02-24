@@ -5,6 +5,7 @@ if [[ -e .git ]];then
 		echo -e "\n1. git add"
 		echo '2. git commit'
 		echo '3. git log'
+		echo '4. Quit'
 		read -n 1 -p "What do you want to do? " resp
 		case $resp in
 			1)
@@ -14,8 +15,12 @@ if [[ -e .git ]];then
 				git log
 				;;
 			2)
+				echo -e "\n" 
 				read -p "type your message " resps
 				git commit -m "$resps"
+				;;
+			4)
+				exit 0
 				;;
 			*)
 				echo -e "\nERR"
