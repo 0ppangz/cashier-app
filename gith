@@ -2,7 +2,7 @@
 if [[ -e .git ]];then
 	
 	while true;do
-		echo '1. git add'
+		echo -e "\n1. git add"
 		echo '2. git commit'
 		echo '3. git log'
 		read -n 1 -p "What do you want to do? " resp
@@ -18,7 +18,7 @@ if [[ -e .git ]];then
 				git commit -m "$resps"
 				;;
 			*)
-				echo "ERR"
+				echo -e "\nERR"
 				;;
 		esac
 	done
