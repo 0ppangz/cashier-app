@@ -15,6 +15,19 @@ $prod = select('select * from lItem');
 
 <body>
   <div class="container">
+    <h1>Cashier App</h1>
+
+    <label for="product-field" style="display: block;">Input the product name</label>
+    <input placeholder="Product Name" list="product-choices" id="product-name" name="product-field" />
+    <label for="product-quantity">*</label>
+    <input placeholder="Quantity" id="product-qty" name="product-quantity" style="width: 64px;" value="1" />
+    <datalist id="product-choices">
+      <?php foreach ($prod as $product): ?>
+        <option value="<?= $product['barangJual'] ?>">
+        <?php endforeach; ?>
+    </datalist>
+
+    <h2>debug</h2>
     <form action="funcs/main.php" method="post" accept-charset="utf-8">
       <ul>
         <?php foreach ($prod as $product): ?>
