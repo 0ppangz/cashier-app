@@ -17,12 +17,21 @@ $prod = select('select * from lItem');
   <div class="container">
     <form action="funcs/main.php" method="post" accept-charset="utf-8">
       <ul>
-      <?php foreach ($prod as $product): ?>
-        <li>
-          <input type="hidden" name="acts" id="act" value="<?=$product['harga']?>" />
-        <button type="submit" name="act" value="<?=$product['barangJual']?>"><?=$product['barangJual']?> <?=$product['harga']?></button>
-        </li>
-      <?php endforeach; ?>
+        <?php foreach ($prod as $product): ?>
+          <li>
+            <input
+              type="hidden"
+              name="acts"
+              id="act"
+              value="<?= $product['harga'] ?>" />
+            <button
+              type="submit"
+              name="act"
+              value="<?= $product['barangJual'] ?>">
+              <?= $product['barangJual'] ?> <?= $product['harga'] ?>
+            </button>
+          </li>
+        <?php endforeach; ?>
       </ul>
     </form>
   </div>
