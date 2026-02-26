@@ -14,9 +14,12 @@ function select($sel) {
 }
 
 // Adding products & price to database
-if (isset($_POST['act'])) {
-  $act = $_POST['act'];
-  $acts = $_POST['acts'];
+
+var_dump($_POST);
+
+/*if (isset($_POST)) {
+  $act = $_POST;
+  var_dump($act);
   $rsl = [
       'product' => $act,
       'price' => $acts
@@ -26,5 +29,5 @@ if (isset($_POST['act'])) {
     header('Location: /cashier-app/index.php');
   }
 }
-
+*/
 ?>

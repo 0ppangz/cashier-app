@@ -3,9 +3,33 @@ body {
   margin: 0;
   font-family: Sans-Serif;
   color: #000;
+  background: #fff;
   font-size: 20px;
 }
 
-button {
+.products {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+#btn {
   padding: 8px;
+  width: 96%;
+  margin: 8px;
+}
+
+ul li {
+  padding: 5px 0;
+  margin: 0;
+}
+ul li button {
+  padding: 8px;
+  width: 100%;
+  text-align: left;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }

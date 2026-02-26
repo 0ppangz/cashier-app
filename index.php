@@ -16,29 +16,29 @@ $prod = select('select * from lItem');
 <body>
   <div class="container">
     <h1>Cashier App</h1>
-    <form action="funcs/main.php" method="post" accept-charset="utf-8">
       <ul>
         <?php foreach ($prod as $product): ?>
         <!-- NOTE BUAT IPAN
         pan caranya biar button di klik bakal nambah value di input hiddennya
         gimana? pengennya sih pake js tp gtw caranya gmn, cobain pls-->
           <li>
-            <input
-              type="hidden"
-              name="acts"
-              id="act"
-              value="<?= $product['harga'] ?>" />
-            <button
-              type="submit"
-              name="act"
-              value="<?= $product['barangJual'] ?>">
-              <?= $product['barangJual'] ?> <?= $product['harga'] ?>
-            </button>
+          <form class="products" action="funcs/main.php" method="post">
+                  <input
+                    type="hidden"
+                    name="productName"
+                    value="<?= $product['barangJual'] ?>" />
+                  <input
+                    type="hidden"
+                    name="price"
+                    value="<?= $product['harga'] ?>" />
+                  <button type="submit">
+                    <?=$product['barangJual'] . $product['harga'] ?>
+                  </button>
+          </form>
           </li>
         <?php endforeach; ?>
       </ul>
-            <button type="submit" name="btn">Konfirmasi</button>
-    </form>
+            <!-- <button type="submit" id="btn"name="btn">Konfirmasi</button> -->
   </div>
 </body>
 
