@@ -2,6 +2,7 @@
 // Connectingto database.
 include 'conn.php';
 
+// Retrieve data from database.
 function select($sel) {
   global $login;
   $resl = $login->query($sel);
@@ -15,19 +16,16 @@ function select($sel) {
 
 // Adding products & price to database
 
-var_dump($_POST);
-
-/*if (isset($_POST)) {
+if (isset($_POST['productName'], $_POST['price'])) {
   $act = $_POST;
-  var_dump($act);
   $rsl = [
-      'product' => $act,
-      'price' => $acts
+      'product' => $act['productName'],
+      'price' => $act['price']
     ];
   $q = $login->prepare('insert into items (namaBarang,price) values(:product,:price)');
   if ($q->execute($rsl)) {
     header('Location: /cashier-app/index.php');
   }
 }
-*/
+
 ?>
