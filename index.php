@@ -17,30 +17,43 @@ $prod = select('select * from lItem');
   <div class="container">
     <h1>Cashier App</h1>
       <ul>
+        <!-- IMPORTANT? pan caranya biar button 
+        di klik bakal nambah value di input 
+        hiddennya gimana? 
+        pengennya sih pake js tp gtw caranya gmn, 
+        cobain pls-->
         <?php foreach ($prod as $product): ?>
-        <!-- IMPORTANT?
-        pan caranya biar button di klik bakal nambah value di input hiddennya
-        gimana? pengennya sih pake js tp gtw caranya gmn, cobain pls-->
-          <li>
-          <form class="products" action="funcs/main.php" method="post">
-            <input
-              type="hidden"
-              name="productName"
-              value="<?= $product['barangJual'] ?>" />
-            <input
-              type="hidden"
-              name="price"
-              value="<?= $product['harga'] ?>" />
-            <button type="submit">
-              <?=$product['barangJual'] . "<span>" . $product['harga'] .
-              "</span>" ?> 
-            </button>
-          </form>
+          <li class="pList">
+            <div class="btnBox">
+              <p class="pName">
+                <?=$product['barangJual']?>
+              </p>
+              <p class="price">
+                <?=$product['harga']?>
+              </p>
+            </div>
+            
+            <div class="amount">0</div>
           </li>
         <?php endforeach; ?>
       </ul>
             <!-- <button type="submit" id="btn"name="btn">Konfirmasi</button> -->
   </div>
+  <script type="text/javascript" charset="utf-8">
+    document.querySelectorAll('.btnBox').forEach(button => {
+      button.addEventListener('click', function () {
+        const products = this.closest('.pList');
+        
+        const price = parseInt(products.querySelector('.price').textContent);
+        const amount = products.querySelector('.amount');
+        
+        let curAm = parseInt(amount.textContent);
+        
+        amount.textContent = curAm + price;
+        
+      })
+    })
+  </script>
 </body>
 
 </html>
