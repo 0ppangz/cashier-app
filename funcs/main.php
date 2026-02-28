@@ -28,4 +28,22 @@ if (isset($_POST['productName'], $_POST['price'])) {
   }
 }
 
+// Function to add data from user input to database.
+function addProduct() {
+  global $login;
+  $rslt = [
+     'product' => $_POST['productName'],
+     'price' => $_POST['productPrice']
+    ];
+  $p = $login->prepare("iNSERT INTO lItem
+  (barangJual,harga) 
+  VALUES(:product,:price)");
+  if ($p->execute($rslt)) {
+    header('Location: /cashier-app/index.php');
+  }
+}
+
+if (isset($_POST['send'])) {
+  addProduct();
+}
 ?>

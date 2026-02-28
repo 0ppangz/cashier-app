@@ -16,7 +16,34 @@ $prod = select('select * from lItem');
 <body>
   <div class="container">
     <h1>Cashier App</h1>
-      <ul>
+    <div class="productBox">
+      <form 
+        autocomplete="off"
+        action="funcs/main.php" 
+        method="post">
+        <label for="namep">Tambahkan produk baru.</label>
+        <input 
+          class="namep" 
+          placeholder="Nama Produk"
+          type="text"
+          name="productName" 
+          id="productName" 
+          required="Isi bagian ini" />
+        <input 
+          placeholder="Harga Produk"
+          class="price"
+          type="text"
+          name="productPrice"
+          id="productPrice"
+          required="Isi bagian ini" />
+        <input 
+          type="submit"
+          name="send" 
+          id="send" 
+          value="CONFIRM" />
+      </form>
+    </div>
+    <ul>
         <!-- IMPORTANT? pan caranya biar button 
         di klik bakal nambah value di input 
         hiddennya gimana? 

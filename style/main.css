@@ -4,8 +4,38 @@ body {
   margin: 0;
   font-family: Sans-Serif;
   color: #000;
-  background: #fff;
+  background: #f3f3f3;
   font-size: 20px;
+}
+input {
+  border: none;
+  border-bottom: 2px solid #a9a9ec;
+  
+}
+.productBox input[type=submit]:hover {
+  background: #000;
+  color: #f6f6fd;
+}
+.productBox input[type=submit] {
+  width: 96%;
+  margin: 8px;
+  padding: 8px 0;
+  outline: none;
+  background: #fff;
+}
+.productBox input[type=text] {
+  padding: 5px;
+}
+.productBox .price {
+  width: 90px;
+}
+.namep {
+  width: 260px;
+  margin-left: 8px;
+}
+.btnBox:hover {
+  background: #000;
+  color: #f6f6fd;
 }
 .btnBox {
   display: flex;
@@ -13,9 +43,9 @@ body {
   padding: 5px 10px;
   width: 91%;
   height: 35px;
-  background: #f0fdfd;
+  background: #fff;
   margin: 5px;
-  border: 2px solid #000;
+  border-bottom: 2px solid #a9a9ec;
   
 }
 .btnBox p {
