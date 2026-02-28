@@ -36,21 +36,26 @@ $prod = select('select * from lItem');
             
           </li>
         <?php endforeach; ?>
+        <button>KONFIRMASI</button>
       </ul>
             <!-- <button type="submit" id="btn"name="btn">Konfirmasi</button> -->
   </div>
   <script type="text/javascript" charset="utf-8">
+    /* Pan, ini caranya biar bisa 
+    retrieve textContent 
+    dari pName, price, ama amount trus send ke 
+    global variablenya php yg $_POST */
     document.querySelectorAll('.btnBox').forEach(button => {
       button.addEventListener('click', function () {
         const products = this.closest('.pList');
-        
+        const product = products.querySelector('.pName');
+        const price = products.querySelector('.price').textContent;
         const amount = products.querySelector('.amount');
         
         let curAm = parseInt(amount.textContent);
         curAm++;
         amount.textContent = curAm;
-        
-      })
+        })
     })
   </script>
 </body>
