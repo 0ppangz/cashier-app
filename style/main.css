@@ -11,7 +11,7 @@ body {
   display: flex;
   flex-direction: row;
   padding: 5px 10px;
-  width: 80%;
+  width: 91%;
   height: 35px;
   background: #f0fdfd;
   margin: 5px;
@@ -23,6 +23,9 @@ body {
 }
 .btnBox .price {
   margin: 7px 0 0 auto;
+}
+.amount {
+  margin: 7px;
 }
 .products {
   margin: 0;

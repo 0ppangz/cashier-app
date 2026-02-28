@@ -29,11 +29,11 @@ $prod = select('select * from lItem');
                 <?=$product['barangJual']?>
               </p>
               <p class="price">
-                <?=$product['harga']?>
+                <?=$product['harga']?> X
               </p>
+              <div class="amount">0</div>
             </div>
             
-            <div class="amount">0</div>
           </li>
         <?php endforeach; ?>
       </ul>
@@ -44,12 +44,11 @@ $prod = select('select * from lItem');
       button.addEventListener('click', function () {
         const products = this.closest('.pList');
         
-        const price = parseInt(products.querySelector('.price').textContent);
         const amount = products.querySelector('.amount');
         
         let curAm = parseInt(amount.textContent);
-        
-        amount.textContent = curAm + price;
+        curAm++;
+        amount.textContent = curAm;
         
       })
     })
