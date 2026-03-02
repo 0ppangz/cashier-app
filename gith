@@ -29,6 +29,10 @@ if [[ -e .git ]];then
 	done
 else
 	git init
-	read -p "Enter your github link to sync the project " links
-	git remote add origin $links
+	read -p "Enter your github link " link
+	git remote add origin $link
+	read -p "Enter your github token " token
+	read -p "Enter your github username " user
+	read -p "Enter your github repository " token
+	git remote set-url origin https://${token}@github.com/${user}/${repo}.git
 fi
