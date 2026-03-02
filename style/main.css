@@ -6,37 +6,51 @@ body {
   background: #f3f3f3;
   font-size: 20px;
 }
-
+.container {
+  padding: 8px;
+}
 input {
   border: none;
   border-bottom: 2px solid #a9a9ec;
 
 }
-
-.productBox input[type=submit]:hover {
+.productBox {
+  padding: 0 4px;
+}
+.productBox input[type=submit]:hover, .konf:hover {
   background: #000;
   color: #f6f6fd;
 }
 
 .productBox input[type=submit] {
-  width: 96%;
-  margin: 8px;
+  width: 100%;
   padding: 8px 0;
   outline: none;
   background: #fff;
 }
 
+span {
+  text-align: right;
+}
 .productBox input[type=text] {
   padding: 5px;
 }
 
+.konf {
+  width: 98%;
+  outline: none;
+  border: none;
+  padding: 8px;
+  margin: 4.5px;
+  border-bottom: 2px solid #a9a9ec;
+  background: #fff;
+}
 .productBox .price {
-  width: 90px;
+  width: 98px;
 }
 
 .namep {
-  width: 260px;
-  margin-left: 8px;
+  width: 253px;
 }
 
 .btnBox:hover {
@@ -48,7 +62,7 @@ input {
   display: flex;
   flex-direction: row;
   padding: 5px 10px;
-  width: 91%;
+  width: 92.6%;
   height: 35px;
   background: #fff;
   margin: 5px;
@@ -76,7 +90,6 @@ input {
 #btn {
   padding: 8px;
   width: 96%;
-  margin: 8px;
 }
 
 ul li {
@@ -94,4 +107,18 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+h1 {
+  text-align: center;
+}
+.details {
+  padding: 18px;
+  width: 80%;
+  height: 40vh;
+  background: #fff;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+.details li {
+  padding: 5px;
 }

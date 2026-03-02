@@ -1,0 +1,17 @@
+[
+    {
+        "name": "nasi goreng",
+        "price": 10000,
+        "amount": 4
+    },
+    {
+        "name": "mie ayam",
+        "price": 10000,
+        "amount": 4
+    },
+    {
+        "name": "nabati keju",
+        "price": 2000,
+        "amount": 4
+    }
+]

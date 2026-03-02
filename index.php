@@ -44,11 +44,6 @@ $prod = select('select * from lItem');
       </form>
     </div>
     <ul>
-      <!-- IMPORTANT? pan caranya biar button 
-        di klik bakal nambah value di input 
-        hiddennya gimana? 
-        pengennya sih pake js tp gtw caranya gmn, 
-        cobain pls-->
       <?php foreach ($prod as $product): ?>
         <li class="pList">
           <div class="btnBox">
@@ -63,21 +58,19 @@ $prod = select('select * from lItem');
 
         </li>
       <?php endforeach; ?>
-      <p id="price-total">Total: Rp 0</p>
-      <button>KONFIRMASI</button>
+      <a href="detail.php">
+        <button class="konf">KONFIRMASI</button>
+      </a>
     </ul>
-    <!-- <button type="submit" id="btn"name="btn">Konfirmasi</button> -->
   </div>
   <script type="text/javascript" charset="utf-8">
-    /* Pan, ini caranya biar bisa 
-    retrieve textContent 
-    dari pName, price, ama amount trus send ke 
-    global variablenya php yg $_POST */
+    
 
-    const data = {}
-
+    const data = {};
     document.querySelectorAll('.btnBox').forEach(button => {
       button.addEventListener('click', function() {
+        
+        // Init 
         const products = this.closest('.pList');
         const product = products.querySelector('.pName');
         const price = products.querySelector('.price');
@@ -100,18 +93,38 @@ $prod = select('select * from lItem');
           price: parseInt(price.textContent.trim()),
           amount: parseInt(amount.textContent)
         }
-
+        
         // ngitung total harga
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
         const priceSum = Object.values(data).reduce((acc, item) => acc + (item.price * item.amount), 0)
+        
+        // Store object ke variable.
+        const val = Object.values(data);
+        
+        // Send object ke data.json
+        fetch('funcs/save.php', {
+          "method" : "POST",
+          "headers" : {
+            "Content-Type" : "application.json"
+          },
+          body: JSON.stringify(val)
+        })
+        // Debug
+        /*.then(res => {
+          return res.text();
+        }).then(data => {
+          document.getElementById('json').innerHTML = data;
+        })*/
+        
         // biar format mata uang (ada RP nya)
         const priceFormatted = Intl.NumberFormat('id-ID', {
           style: "currency",
           currency: "IDR"
         }).format(priceSum)
-        document.getElementById('price-total').textContent = `Total: ${priceFormatted}`
-      })
-    })
+        document.getElementById('price-total').textContent = `Total:
+        Rp${priceSum}`
+      });
+    });
   </script>
 </body>
 
